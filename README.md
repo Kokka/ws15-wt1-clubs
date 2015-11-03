@@ -1,7 +1,6 @@
 # ws15-wt1-clubs
 Club managing app for the ruby-learning class.
 
-Abstract (German):
 
 Unser erstes Ruby-Projekt ist eine Webanwendung für das Terminmanagement von Gruppen wie beispielsweise Sportvereinen. Die Anwendung soll Zu- und Absagen für Termine oder Veranstaltungen übersichtlich darstellen. Ein konkreter Anwendungsfall hierzu wäre die Organisation von wöchentlichen Trainingsterminen einer Sportmannschaft. Vereinsmitglieder sollen hierbei die Möglichkeit haben selbstständig sich für Termine einzuschreiben. Gleichzeitig können sie erkennen, ob sich bereits genug Teilnehmer für den nächsten Termin gemeldet haben. Die Liste soll sich dabei am aktuellen Datum orientieren, den anstehenden Termin hervorheben und bereits vergangene Termine ausblenden.
 
