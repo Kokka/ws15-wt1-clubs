@@ -1,3 +1,4 @@
 class Group < ActiveRecord::Base
-	has_many :member
+	has_many :members
+	has_many :meetings
 end
