@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111185217) do
+ActiveRecord::Schema.define(version: 20151111191408) do
 
-  create_table "group_members", id: false, force: :cascade do |t|
-    t.integer "group_id"
+  create_table "group_member", id: false, force: :cascade do |t|
+    t.integer "groups_id"
     t.integer "members_id"
   end
 
