@@ -2,7 +2,7 @@ require 'faker'
 namespace :db do   
 desc "Fill database with sample data" 
 task populate: :environment do
-	[Group, Member, Meeting, Invite].each(&:delete_all)
+	[Group, Member, Meeting, Invite, Membership].each(&:delete_all)
         10.times do |n|
           name  = Faker::Company.name
           Group.create!(:name => name)
@@ -18,13 +18,19 @@ task populate: :environment do
 		5.times do |n|
           date  = Faker::Date.forward(23)
 		  Meeting.create!(:meetDate => date,
-						  :group_id => n)
+						  :group_id => n+1)
         end	
 		8.times do |n|
           accept  = Faker::Number.number(1)
 		  Invite.create!(:accept => accept,
 						 :meeting_id => n+10,
-						 :member_id => n)
+						 :member_id => n+1)
+        end	
+		5.times do |n|
+          joined  = Faker::Date.forward(23)
+		  Membership.create!(:joined => joined,
+						 :group_id => n+1,
+						 :member_id => n+10)
         end		
      end 
   end

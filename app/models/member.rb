@@ -1,4 +1,5 @@
 class Member < ActiveRecord::Base
-	has_and_belongs_to_many :groups
+	has_many :memberships
+	has_many :groups, through: :memberships, dependent: :destroy
 	has_many :invites
 end
