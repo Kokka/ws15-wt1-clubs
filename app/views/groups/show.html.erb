@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <strong>ID:</strong>
+  <strong>Group ID:</strong>
   <%= @group.id %>
 </p>
 
@@ -19,7 +19,7 @@
       <th>Last Name</th>
       <th>Member ID</th>
       <th>Joined</th>
-      <th>Kick from Group</th>
+      <th>Remove from Group</th>
     </tr>
   </thead>
 
@@ -30,11 +30,35 @@
         <td><%= (Member.find_by id: membership.member_id).lastName %></td>
         <td><%= (Member.find_by id: membership.member_id).id %></td>
         <td><%= membership.joined %></td>
-        <td><%= link_to 'Destroy', membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Add Member', new_membership_path %>|
+<%= link_to 'Add Member', new_membership_path %>
+
+<h2>Meetings</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Meeting ID</th>
+      <th>Date</th>
+      <th>Cancel</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group.meetings.each do |meeting| %>
+      <tr>
+        <td><%= meeting.id %></td>
+        <td><%= meeting.meetDate %></td>
+        <td><%= link_to 'Cancel', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add Member', new_membership_path %>
 <%= link_to 'Back', groups_path %>
