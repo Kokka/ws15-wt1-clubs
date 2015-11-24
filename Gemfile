@@ -54,7 +54,6 @@ group :development do
 
   # for ci and deployment on heroku
   gem 'travis'
-  gem 'heroku'
 end
 
 # changes for heroku, see https://devcenter.heroku.com/articles/getting-started-with-rails4
