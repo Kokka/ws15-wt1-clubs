@@ -5,5 +5,33 @@
   <%= @group.name %>
 </p>
 
+<p>
+  <strong>ID:</strong>
+  <%= @group.id %>
+</p>
+
+<h2>Members</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>ID</th>
+      <th>Joined</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group.members.each do |member| %>
+      <tr>
+        <td><%= member.firstName %></td>
+        <td><%= member.lastName %></td>
+        <td><%= member.id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>
