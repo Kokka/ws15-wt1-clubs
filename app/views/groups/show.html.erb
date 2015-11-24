@@ -17,17 +17,18 @@
     <tr>
       <th>First Name</th>
       <th>Last Name</th>
-      <th>ID</th>
+      <th>Member ID</th>
       <th>Joined</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @group.members.each do |member| %>
+    <% @group.memberships.each do |membership| %>
       <tr>
-        <td><%= member.firstName %></td>
-        <td><%= member.lastName %></td>
-        <td><%= member.id %></td>
+        <td><%= (Member.find_by id: membership.member_id).firstName %></td>
+        <td><%= (Member.find_by id: membership.member_id).lastName %></td>
+        <td><%= (Member.find_by id: membership.member_id).id %></td>
+        <td><%= membership.joined %></td>
       </tr>
     <% end %>
   </tbody>
