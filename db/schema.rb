@@ -13,6 +13,11 @@
 
 ActiveRecord::Schema.define(version: 20151112131520) do
 
+  create_table "group_member", id: false, force: :cascade do |t|
+    t.integer "groups_id"
+    t.integer "members_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -46,7 +51,10 @@ ActiveRecord::Schema.define(version: 20151112131520) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "password"
+    t.integer  "group_id"
   end
+
+  add_index "members", ["group_id"], name: "index_members_on_group_id"
 
   create_table "memberships", force: :cascade do |t|
     t.date     "joined"

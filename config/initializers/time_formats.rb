@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:german_format] = '%d.%m.%Y %H:%M Uhr'
