@@ -1,10 +1,11 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    @groups = Group.order(sort_column + " " + sort_direction)
   end
 
   # GET /groups/1
@@ -62,6 +63,16 @@ class GroupsController < ApplicationController
   end
 
   private
+	def sort_column
+		Group.column_names.include?(params[:sort]) ? params[:sort] : "name"
+	end
+	def sort_direction
+		%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+	end
+	def your_custom_action
+		@group.amount_of_memberships = @groups.memberships.size
+	end
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_group
       @group = Group.find(params[:id])

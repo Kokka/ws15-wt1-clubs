@@ -5,9 +5,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-	  <th><%= link_to "Members", :controller => :groups, :action => :index %></th>
-	  <th>Created</th>
+      <th><%= sortable "name", "Name" %></th>
+	  <th><%= sortable "amount_of_memberships", "Members" %></th>
+	  <th><%= sortable "created_at", "Created" %></th>
       <th colspan="2"></th>
     </tr>
   </thead>
