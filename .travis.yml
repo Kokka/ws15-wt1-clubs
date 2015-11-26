@@ -3,5 +3,3 @@ rvm:
   - 2.2.3
 install:
   - bundle install --jobs=1
-script:
-  - rake travis
