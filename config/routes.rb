@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :memberships
-  resources :invites
-  
+  resources :invites  
   resources :members
   resources :groups do
 	resources :meetings
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

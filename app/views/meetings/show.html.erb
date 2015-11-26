@@ -5,9 +5,39 @@
   <%= @meeting.meetDate %>
 </p>
 <p>
-  <strong>Group:</strong>
+  <strong>Group ID:</strong>
   <%= @group.id %>
 </p>
+<p>
+  <strong>Group Name:</strong>
+  <%= (Group.find_by id: @meeting.group_id).name %>
+</p>
+
+<h2>Invites:</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Member ID</th>
+	  <th>Date</th>
+	  <th>Accept</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meeting.invites.each do |invite| %>
+      <tr>
+        <td><%= (Member.find_by id: invite.member_id).firstName %></td>
+        <td><%= (Member.find_by id: invite.member_id).lastName %></td>
+        <td><%= (Member.find_by id: invite.member_id).id %></td>
+        <td><%= invite.timestamp %></td>
+		<td><%= invite.accept %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_group_meeting_path(@group, @meeting) %> |
 <%= link_to 'Back', @group %>

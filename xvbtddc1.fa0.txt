@@ -1,0 +1,15 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   Gemfile.lock
+#	modified:   app/controllers/invites_controller.rb
+#	modified:   app/views/invites/_form.html.erb
+#	modified:   app/views/meetings/show.html.erb
+#	modified:   config/routes.rb
+#	modified:   db/schema.rb
+#
+
