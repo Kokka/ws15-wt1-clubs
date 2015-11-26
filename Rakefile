@@ -3,4 +3,7 @@
 
 require File.expand_path('../config/application', __FILE__)
 
+desc "task for travis"
+task :travis => [:spec]
+
 Rails.application.load_tasks
