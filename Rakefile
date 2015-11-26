@@ -7,3 +7,10 @@ Rails.application.load_tasks
 
 desc "task for travis"
 task :travis => [:spec]
+
+namespace :db do
+  desc "reset db"
+  task :populate => :environment do
+    Rake::Task['db:reset'].invoke
+  end
+end
