@@ -4,16 +4,19 @@ class MeetingsController < ApplicationController
   # GET /meetings
   # GET /meetings.json
   def index
-    @meetings = Meeting.all
+    @group = Group.find(params[:group_id])
+    @meetings = @group.meetings
   end
 
   # GET /meetings/1
   # GET /meetings/1.json
   def show
+	@group = Group.find(params[:group_id])
   end
 
   # GET /meetings/new
   def new
+	@group = Group.find(params[:group_id])
     @meeting = Meeting.new
   end
 
@@ -24,11 +27,12 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.json
   def create
-    @meeting = Meeting.new(meeting_params)
+	@group = Group.find(params[:group_id])
+    @meeting = Meeting.create(meeting_params)
 
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
+        format.html { redirect_to [@group, @meeting], notice: 'Meeting was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
       else
         format.html { render :new }
@@ -40,9 +44,12 @@ class MeetingsController < ApplicationController
   # PATCH/PUT /meetings/1
   # PATCH/PUT /meetings/1.json
   def update
+	@group = Group.find(params[:group_id])
+	@meeting = @group.meetings.find(params[:group_id])
+  
     respond_to do |format|
       if @meeting.update(meeting_params)
-        format.html { redirect_to @meeting, notice: 'Meeting was successfully updated.' }
+        format.html { redirect_to [@group, @group.meetings], notice: 'Meeting was successfully updated.' }
         format.json { render :show, status: :ok, location: @meeting }
       else
         format.html { render :edit }
@@ -54,9 +61,11 @@ class MeetingsController < ApplicationController
   # DELETE /meetings/1
   # DELETE /meetings/1.json
   def destroy
+	@group = Group.find(params[:group_id])
+    @meeting = @group.meetings.find(params[:id])
     @meeting.destroy
     respond_to do |format|
-      format.html { redirect_to meetings_url, notice: 'Meeting was successfully destroyed.' }
+      format.html { redirect_to @group, notice: 'Meeting was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

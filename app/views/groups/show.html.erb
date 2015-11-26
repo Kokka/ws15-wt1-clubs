@@ -52,13 +52,13 @@
   <tbody>
     <% @group.meetings.each do |meeting| %>
       <tr>
-        <td><%= meeting.id %></td>
+        <td><%= link_to meeting.id, group_meeting_path(@group, meeting) %></td>
         <td><%= meeting.meetDate %></td>
-        <td><%= link_to 'Cancel', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Cancel', group_meeting_path(@group, meeting), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Add Member', new_membership_path %>
+<%= link_to 'Add Meeting', new_group_meeting_path(@group) %>
 <%= link_to 'Back', groups_path %>

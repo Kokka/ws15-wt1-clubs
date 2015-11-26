@@ -6,8 +6,8 @@
 </p>
 <p>
   <strong>Group:</strong>
-  <%= @meeting.group_id %>
+  <%= @group.id %>
 </p>
 
-<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
-<%= link_to 'Back', meetings_path %>
+<%= link_to 'Edit', edit_group_meeting_path(@group, @meeting) %> |
+<%= link_to 'Back', @group %>
