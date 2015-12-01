@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "creating a new group", type: :feature do
+describe "sorting groups", type: :feature do
   before :each do
     @group_name1 = "CCC"
     Group.create(name: @group_name1)
@@ -22,5 +22,4 @@ describe "creating a new group", type: :feature do
 	  page.body.should =~ /AAA.*BBB.*CCC/
     end
   end
-
 end
