@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Kokka/ws15-wt1-clubs.svg?branch=WEEK04)](https://travis-ci.org/Kokka/ws15-wt1-clubs)
+
 # ws15-wt1-clubs
 Club managing app for the ruby-learning class.
 
